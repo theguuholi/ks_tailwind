@@ -16,6 +16,7 @@ defmodule KsTailwindWeb.Router do
   scope "/", KsTailwindWeb do
     pipe_through :browser
 
+    resources "/products", ProductController
     get "/", PageController, :index
   end
 
