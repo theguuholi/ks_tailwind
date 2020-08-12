@@ -2,7 +2,7 @@
     <div class="container mx-auto flex items-center flex-wrap pt-4 pb-12">
       <%= render KsTailwindWeb.PageView, "product-search.html", assigns %>
       <%= for product <- @products do %>
-      <%= render KsTailwindWeb.ProductView, "show.html", product: product %>
+      <%= render KsTailwindWeb.ProductView, "product_view.html", conn: @conn, product: product %>
       <% end %>
     </div>
   </section>
