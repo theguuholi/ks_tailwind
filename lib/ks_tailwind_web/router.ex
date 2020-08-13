@@ -18,6 +18,7 @@ defmodule KsTailwindWeb.Router do
 
     resources "/products", ProductController
     get "/", PageController, :index
+    get "/success", PageController, :success
   end
 
   # Other scopes may use custom stacks.

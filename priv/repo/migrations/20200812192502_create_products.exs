@@ -9,6 +9,5 @@ defmodule KsTailwind.Repo.Migrations.CreateProducts do
 
       timestamps()
     end
-
   end
 end

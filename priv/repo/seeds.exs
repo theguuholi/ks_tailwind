@@ -32,9 +32,9 @@ products = [
   %{
     image_url:
       "https://images.unsplash.com/photo-1449247709967-d4461a6a6103?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80",
-      name: "Cadeira",
+    name: "Cadeira",
     price: 500
   }
 ]
 
-Enum.each(products, &KsTailwind.Products.create_product/1 )
+Enum.each(products, &KsTailwind.Products.create_product/1)

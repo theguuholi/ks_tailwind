@@ -28,7 +28,28 @@ defmodule KsTailwindWeb.ProductController do
 
   def show(conn, %{"id" => id}) do
     product = Products.get_product!(id)
-    render(conn, "show.html", product: product)
+
+    {:ok, session} =
+      Stripe.Session.create(%{
+        payment_method_types: ["card"],
+        line_items: [
+          %{
+            price_data: %{
+              currency: "brl",
+              product_data: %{
+                name: product.name
+              },
+              unit_amount: product.price
+            },
+            quantity: 1
+          }
+        ],
+        mode: "payment",
+        success_url: "http://localhost:4000/success?session_id={CHECKOUT_SESSION_ID}",
+        cancel_url: "http://localhost:4000/"
+      })
+
+    render(conn, "show.html", product: product, session: session)
   end
 
   def edit(conn, %{"id" => id}) do
